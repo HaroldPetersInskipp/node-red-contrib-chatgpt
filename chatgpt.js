@@ -5,6 +5,7 @@ module.exports = (RED) => {
         "image",
         "edit",
         "turbo",
+        "turbo-16k",
         "gpt4",
     ].map((item) => item.toLowerCase());
     const main = function (config) {
@@ -128,14 +129,14 @@ module.exports = (RED) => {
             } else if (msg.topic === "turbo" || msg.topic === 'turbo-16k') {
                 try {
                     if (typeof msg.history === "undefined") msg.history = [];
-                    msg.topic = "turbo";
+//                     msg.topic = "turbo";
                     const input = {
                         role: "user",
                         content: msg.payload,
                     };
                     msg.history.push(input);
                     const response = await openai.createChatCompletion({
-                        model: `gpt-3.5-turbo${msg.topic}`,
+                        model: `gpt-3.5-${msg.topic}`,
                         messages: msg.history,
                         temperature: parseInt(msg.temperature) || 1,
                         top_p: parseInt(msg.top_p) || 1,
