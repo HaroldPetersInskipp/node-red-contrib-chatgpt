@@ -125,7 +125,7 @@ module.exports = (RED) => {
                         node.error(error.message, msg);
                     }
                 }
-            } else if (msg.topic === "turbo") {
+            } else if (msg.topic === "turbo" || msg.topic === 'turbo-16k') {
                 try {
                     if (typeof msg.history === "undefined") msg.history = [];
                     msg.topic = "turbo";
@@ -135,7 +135,7 @@ module.exports = (RED) => {
                     };
                     msg.history.push(input);
                     const response = await openai.createChatCompletion({
-                        model: "gpt-3.5-turbo",
+                        model: `gpt-3.5-turbo${msg.topic}`,
                         messages: msg.history,
                         temperature: parseInt(msg.temperature) || 1,
                         top_p: parseInt(msg.top_p) || 1,
