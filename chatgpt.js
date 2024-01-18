@@ -63,7 +63,7 @@ module.exports = (RED) => {
 
             // Check and normalize the provided topic in the message
             if (config.topic != "__EMPTY__") {
-                msg.topic = config.topic;
+                config.topic = msg.topic ;
             }
             if (msg.topic) {
                 msg.topic = msg.topic.toLowerCase();
