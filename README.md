@@ -5,7 +5,7 @@
 ![Downloads](https://img.shields.io/npm/dt/node-red-contrib-custom-chatgpt.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Supercharge your Node-RED flows with AI! Seamlessly integrate with OpenAI's powerful models like GPT-4 and DALL·E 2, and unlock a world of creative possibilities. Create imaginative chatbots, automate content generation, or build AI-driven experiences. The power of AI is just a node away!
+Supercharge your Node-RED flows with AI! Seamlessly integrate with OpenAI's powerful models like GPT-4, GPT-4o and DALL·E 2, and unlock a world of creative possibilities. Create imaginative chatbots, automate content generation, or build AI-driven experiences. The power of AI is just a node away!
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ With these, you're ready to configure your `node-red-contrib-custom-chatgpt` nod
 
 ## Usage
 
-With `node-red-contrib-custom-chatgpt`, you have the power to select the behavior of the node by setting the Topic property value to `completion`, `image`, `edit`, `turbo` , or `gpt4`. You can control the node with a single required message property `msg.payload` or dynamically set the behavior with incoming messages using `read from msg.topic`.
+With `node-red-contrib-custom-chatgpt`, you have the power to select the behavior of the node by setting the Topic property value to `completion`, `image`, `edit`, `turbo` , or `gpt4` / `gpt4o`. You can control the node with a single required message property `msg.payload` or dynamically set the behavior with incoming messages using `read from msg.topic`.
 
 For detailed information on the usage of these modes, please refer to the [OpenAI API documentation](https://beta.openai.com/docs/).
 
