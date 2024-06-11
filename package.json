@@ -1,14 +1,14 @@
 {
-  "name": "node-red-contrib-custom-chatgpt",
+  "name": "node-red-contrib-custom-chatgpt4o",
   "version": "1.2.18",
-  "description": "A Node-RED node that interacts with OpenAI machine learning models to generate text and image outputs like 'ChatGPT' and 'DALL·E 2'.",
+  "description": "A Node-RED node that interacts with OpenAI machine learning models to generate text and image outputs like 'ChatGPT-4o' and 'DALL·E 2'.",
   "main": "chatgpt.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt.git"
+    "url": "git+https://github.com/soenkegissel/node-red-contrib-chatgpt4o.git"
   },
   "keywords": [
     "node-red",
@@ -28,6 +28,7 @@
     "conversational-ai",
     "gpt-3",
     "gpt-4",
+    "gpt-4o",
     "dall-e",
     "ai"
   ],
@@ -41,7 +42,7 @@
     "node": ">=14.0.0"
   },
   "author": {
-        "name": "Harold Peters Inskipp",
+        "name": "Harold Peters Inskipp / Edit by Sönke Gissel",
         "email": "HaroldPetersInskipp@gmail.com"
     },
   "license": "MIT",
