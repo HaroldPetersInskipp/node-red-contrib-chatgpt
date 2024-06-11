@@ -23,10 +23,10 @@ Supercharge your Node-RED flows with AI! Seamlessly integrate with OpenAI's powe
 
 ## Getting Started
 
-To start using `node-red-contrib-custom-chatgpt`, you can install it through the built-in Node-RED Palette manager or using npm:
+To start using `node-red-contrib-custom-chatgpt4o`, you can install it through the built-in Node-RED Palette manager or using npm:
 
 ```sh
-npm install node-red-contrib-custom-chatgpt
+npm install node-red-contrib-custom-chatgpt4o
 ```
 
 ## Setup
@@ -34,17 +34,17 @@ npm install node-red-contrib-custom-chatgpt
 - [Follow this guide to get your OpenAI API key](https://platform.openai.com/account/api-keys)
 - [Here's how to get your Organization ID](https://platform.openai.com/account/org-settings)
 
-With these, you're ready to configure your `node-red-contrib-custom-chatgpt` nodes.
+With these, you're ready to configure your `node-red-contrib-custom-chatgpt4o` nodes.
 
 ## Usage
 
-With `node-red-contrib-custom-chatgpt`, you have the power to select the behavior of the node by setting the Topic property value to `completion`, `image`, `edit`, `turbo` , or `gpt4` / `gpt4o`. You can control the node with a single required message property `msg.payload` or dynamically set the behavior with incoming messages using `read from msg.topic`.
+With `node-red-contrib-custom-chatgpt4o`, you have the power to select the behavior of the node by setting the Topic property value to `image`, `edit`, `turbo` , or `gpt4` / `gpt4o`. You can control the node with a single required message property `msg.payload` or dynamically set the behavior with incoming messages using `read from msg.topic`.
 
 For detailed information on the usage of these modes, please refer to the [OpenAI API documentation](https://beta.openai.com/docs/).
 
-1. When `msg.topic` is set to `completion`:
+<del>1. When `msg.topic` is set to `completion`:</del>
 
-   - [Required] `msg.payload` should be a well-written prompt that provides enough information for the model to know what you want and how it should respond. Its success generally depends on the complexity of the task and quality of your prompt. A good rule of thumb is to think about how you would write a word problem for a middle schooler to solve.
+   - <del>[Required] `msg.payload` should be a well-written prompt that provides enough information for the model to know what you want and how it should respond. Its success generally depends on the complexity of the task and quality of your prompt. A good rule of thumb is to think about how you would write a word problem for a middle schooler to solve.</del>
 
 2. When `msg.topic` is set to `image`:
 
@@ -66,7 +66,7 @@ For detailed information on the usage of these modes, please refer to the [OpenA
 
    - [Optional] `msg.history` should be an array of objects containing the conversation history. [Default:`[]`]
 
-5. When `msg.topic` is set to `gpt4`:
+5. When `msg.topic` is set to `gpt4` or `gpt4o`:
 
    - [Required] `msg.payload` should be a well-written prompt that provides enough information for the model to know what you want and how it should respond. Its success generally depends on the complexity of the task and quality of your prompt.
 
