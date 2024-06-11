@@ -7,11 +7,11 @@ module.exports = (RED) => {
 
     // Define a list of acceptable topics for the node
     const ACCEPT_TOPIC_LIST = [
-        "completion",
         "image",
         "edit",
         "turbo",
         "gpt4",
+		"gpt4o"
     ].map((item) => item.toLowerCase());
 
     // Main function that gets executed when a message is received
@@ -286,29 +286,41 @@ module.exports = (RED) => {
                         node.error(error.message, msg);
                     }
                 }
-            } else {
-                // Default case for completion topic
+            } else if (msg.topic === "gpt4o") {
+                // Process messages with the "gpt4" topic
                 try {
-                    msg.topic = "completion";
-                    // Request completion from the default model
-                    const response = await openai.createCompletion({
-                        model: "text-davinci-003",
-                        prompt: msg.payload,
-                        suffix: msg.suffix || null,
-                        max_tokens: parseInt(msg.max_tokens) || 4000,
+                    // Handle GPT-4 conversation logic
+                    if (typeof msg.history === "undefined")
+                        msg.history = [];
+                    msg.topic = "gpt4o";
+                    const input = {
+                        role: "user",
+                        content: msg.payload,
+                    };
+                    msg.history.push(input);
+
+                    // Request completion from GPT-4 model
+                    const response = await openai.createChatCompletion({
+                        model: "gpt-4o",
+                        messages: msg.history,
                         temperature: parseInt(msg.temperature) || 1,
                         top_p: parseInt(msg.top_p) || 1,
                         n: parseInt(msg.n) || 1,
                         stream: msg.stream || false,
-                        logprobs: parseInt(msg.logprobs) || null,
-                        echo: msg.echo || false,
                         stop: msg.stop || null,
+                        max_tokens: parseInt(msg.max_tokens) || 4000,
                         presence_penalty: parseInt(msg.presence_penalty) || 0,
                         frequency_penalty: parseInt(msg.frequency_penalty) || 0,
-                        best_of: parseInt(msg.best_of) || 1,
                     });
+                    const trimmedContent =
+                        response.data.choices[0].message.content.trim();
+                    const result = {
+                        role: "assistant",
+                        content: trimmedContent,
+                    };
+                    msg.history.push(result);
                     // Extract completed text from the response
-                    msg.payload = response.data.choices[0].text;
+                    msg.payload = response.data.choices[0].message.content;
                     msg.full = response;
                     // Set node status
                     node.status({
