@@ -41,16 +41,16 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "author": {
-        "name": "Harold Peters Inskipp / Edit by Sönke Gissel",
-        "email": "HaroldPetersInskipp@gmail.com"
-    },
+  "author": "Sönke Gissel / Original by Harold Peters Inskipp <soenke.gissel@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/issues"
   },
-  "homepage": "https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt#readme",
+  "homepage": "https://github.com/soenkegissel/node-red-contrib-chatgpto#readme",
   "dependencies": {
     "openai": "^3.2.1"
+  },
+  "directories": {
+    "example": "examples"
   }
 }

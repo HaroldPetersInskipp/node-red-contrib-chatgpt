@@ -1,8 +1,8 @@
-# node-red-contrib-custom-chatgpt
+# node-red-contrib-custom-chatgpt4o
 
 ![Platform](https://img.shields.io/badge/platform-Node--RED-red)
-![npm](https://img.shields.io/npm/v/node-red-contrib-custom-chatgpt.svg)
-![Downloads](https://img.shields.io/npm/dt/node-red-contrib-custom-chatgpt.svg)
+![npm](https://img.shields.io/npm/v/node-red-contrib-custom-chatgpto.svg)
+![Downloads](https://img.shields.io/npm/dt/node-red-contrib-custom-chatgpto.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Supercharge your Node-RED flows with AI! Seamlessly integrate with OpenAI's powerful models like GPT-4, GPT-4o and DALL·E 2, and unlock a world of creative possibilities. Create imaginative chatbots, automate content generation, or build AI-driven experiences. The power of AI is just a node away!
@@ -76,38 +76,15 @@ For detailed information on the usage of these modes, please refer to the [OpenA
 
 The following optional inputs are supported - `msg.max_tokens`, `msg.suffix`, `msg.n`, `msg.temperature`, `msg.top_p`, `msg.presence_penalty`, `msg.frequency_penalty`, `msg.echo`, `msg.API_KEY` and `msg.ORGANIZATION`. See the nodes built-in help tab for more information on how they are used.
 
-## Examples
-
-We've provided several examples to help you understand the potential and versatility of `node-red-contrib-custom-chatgpt`. From basic usages like image generation and text editing, to more advanced features like setting behaviors, using optional message properties, and automating Node-RED node creation.
-
-[Old screenshot] Basic usage for image, completion, and edit.
-[![Screenshot showcasing basic usage of node-red-contrib-custom-chatgpt for image generation, text completion, and text editing tasks](/examples/example.png)](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/blob/main/examples/chatgpt.json)
-
-[Old screenshot] More advanced usage with templates.
-[![Screenshot illustrating advanced usage of node-red-contrib-custom-chatgpt with templates](/examples/example2.png)](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/blob/main/examples/chatgpt.json)
-
-[Old screenshot] Usage of model `gpt-3.5-turbo` and conversation history.
-[![Screenshot demonstrating the usage of `gpt-3.5-turbo` model with conversation history in node-red-contrib-custom-chatgpt](/examples/example3.png)](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/blob/main/examples/chatgpt.json)
-
-[New screenshot] Updated example using optional message properties and setting behavior `Topic` in node edit dialog.
-[![Screenshot of an updated example showing the use of optional message properties and setting behavior `Topic` in node edit dialog with node-red-contrib-custom-chatgpt](/examples/example4.png)](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/blob/main/examples/chatgpt.json)
-
-[New screenshot] Additional example demonstrating how to generate Node-RED nodes and import them directly into the editor automatically.
-[![Screenshot of an additional example demonstrating the generation of Node-RED nodes and their automatic import into the editor using node-red-contrib-custom-chatgpt](/examples/example5.png)](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/blob/main/examples/generate-node-red-nodes.json)
-
 ## External Links
 
 - [Node-RED](https://flows.nodered.org/node/node-red-contrib-custom-chatgpt)
-- [Libraries.io](https://libraries.io/npm/node-red-contrib-custom-chatgpt)
-- [npm](https://www.npmjs.com/package/node-red-contrib-custom-chatgpt)
+- [Libraries.io](https://libraries.io/npm/node-red-contrib-custom-chatgpto)
+- [npm](https://www.npmjs.com/package/node-red-contrib-custom-chatgpto)
 
 ## Bugs and Feature Requests
 
 Encountered a bug or have an idea for a new feature? We'd love to hear from you! Feel free to [submit an issue](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/issues) on our GitHub page.
-
-## Changelog
-
-Stay up-to-date with the latest changes by checking out our [CHANGELOG](https://github.com/HaroldPetersInskipp/node-red-contrib-chatgpt/blob/main/CHANGELOG.md).
 
 ## License
 
