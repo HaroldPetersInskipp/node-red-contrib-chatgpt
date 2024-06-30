@@ -1,8 +1,8 @@
 # node-red-contrib-custom-chatgpt4o
 
 ![Platform](https://img.shields.io/badge/platform-Node--RED-red)
-![npm](https://img.shields.io/npm/v/node-red-contrib-custom-chatgpto.svg)
-![Downloads](https://img.shields.io/npm/dt/node-red-contrib-custom-chatgpto.svg)
+![npm](https://img.shields.io/npm/v/node-red-contrib-custom-chatgpt4o.svg)
+![Downloads](https://img.shields.io/npm/dt/node-red-contrib-custom-chatgpt4o.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Supercharge your Node-RED flows with AI! Seamlessly integrate with OpenAI's powerful models like GPT-4, GPT-4o and DALL·E 2, and unlock a world of creative possibilities. Create imaginative chatbots, automate content generation, or build AI-driven experiences. The power of AI is just a node away!
