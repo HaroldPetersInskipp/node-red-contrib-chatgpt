@@ -12,6 +12,31 @@ module.exports = (RED) => {
         "dalle3",
     ].map((item) => item.toLowerCase());
 
+    // gpt-3.5-turbo, gpt-4 and gpt-4-turbo were shut down on 2026-10-23; gpt-4o and gpt-4o-mini follow on 2027-01-14
+    // https://developers.openai.com/api/docs/deprecations
+    const DEFAULT_CHAT_MODEL = "gpt-6-luna";
+
+    // Only send sampling params the user set: newer reasoning models reject non-default values
+    const optionalNumber = (value) => (value == null || value === "" ? undefined : parseFloat(value));
+
+    // Build the request shared by every chat topic
+    const chatRequest = (msg) => {
+        const model = msg.model || DEFAULT_CHAT_MODEL;
+        return {
+            model: model,
+            messages: msg.history,
+            temperature: optionalNumber(msg.temperature),
+            top_p: optionalNumber(msg.top_p),
+            n: parseInt(msg.n) || 1,
+            stream: msg.stream || false,
+            stop: msg.stop || undefined,
+            max_completion_tokens: parseInt(msg.max_tokens) || 4000,
+            presence_penalty: optionalNumber(msg.presence_penalty),
+            frequency_penalty: optionalNumber(msg.frequency_penalty),
+            reasoning_effort: msg.reasoning_effort || (model === DEFAULT_CHAT_MODEL ? "none" : undefined),
+        };
+    };
+
     // Main function that gets executed when a message is received
     const main = function (config) {
         const node = this;
@@ -170,19 +195,8 @@ module.exports = (RED) => {
                         content: msg.payload,
                     };
                     msg.history.push(input);
-                    // Request completion from gpt-3.5-turbo model
-                    const response = await openai.chat.completions.create({
-                        model: "gpt-3.5-turbo",
-                        messages: msg.history,
-                        temperature: parseInt(msg.temperature) || 1,
-                        top_p: parseInt(msg.top_p) || 1,
-                        n: parseInt(msg.n) || 1,
-                        stream: msg.stream || false,
-                        stop: msg.stop || null,
-                        max_tokens: parseInt(msg.max_tokens) || 4000,
-                        presence_penalty: parseInt(msg.presence_penalty) || 0,
-                        frequency_penalty: parseInt(msg.frequency_penalty) || 0,
-                    });
+                    // Request a chat completion
+                    const response = await openai.chat.completions.create(chatRequest(msg));
                     const trimmedContent =
                         response.choices[0].message.content.trim();
                     const result = {
@@ -228,19 +242,8 @@ module.exports = (RED) => {
                     };
                     msg.history.push(input);
 
-                    // Request completion from GPT-4 model
-                    const response = await openai.chat.completions.create({
-                        model: "gpt-4",
-                        messages: msg.history,
-                        temperature: parseInt(msg.temperature) || 1,
-                        top_p: parseInt(msg.top_p) || 1,
-                        n: parseInt(msg.n) || 1,
-                        stream: msg.stream || false,
-                        stop: msg.stop || null,
-                        max_tokens: parseInt(msg.max_tokens) || 4000,
-                        presence_penalty: parseInt(msg.presence_penalty) || 0,
-                        frequency_penalty: parseInt(msg.frequency_penalty) || 0,
-                    });
+                    // Request a chat completion
+                    const response = await openai.chat.completions.create(chatRequest(msg));
                     const trimmedContent =
                         response.choices[0].message.content.trim();
                     const result = {
@@ -286,19 +289,8 @@ module.exports = (RED) => {
                     };
                     msg.history.push(input);
 
-                    // Request completion from GPT-4 model
-                    const response = await openai.chat.completions.create({
-                        model: msg.model ? msg.model : "gpt-4o",
-                        messages: msg.history,
-                        temperature: parseInt(msg.temperature) || 1,
-                        top_p: parseInt(msg.top_p) || 1,
-                        n: parseInt(msg.n) || 1,
-                        stream: msg.stream || false,
-                        stop: msg.stop || null,
-                        max_tokens: parseInt(msg.max_tokens) || 4000,
-                        presence_penalty: parseInt(msg.presence_penalty) || 0,
-                        frequency_penalty: parseInt(msg.frequency_penalty) || 0,
-                    });
+                    // Request a chat completion
+                    const response = await openai.chat.completions.create(chatRequest(msg));
                     const trimmedContent =
                         response.choices[0].message.content.trim();
                     const result = {
@@ -344,19 +336,8 @@ module.exports = (RED) => {
                     };
                     msg.history.push(input);
 
-                    // Request completion from GPT-4 model
-                    const response = await openai.chat.completions.create({
-                        model: msg.model ? msg.model : "gpt-4o-mini",
-                        messages: msg.history,
-                        temperature: parseInt(msg.temperature) || 1,
-                        top_p: parseInt(msg.top_p) || 1,
-                        n: parseInt(msg.n) || 1,
-                        stream: msg.stream || false,
-                        stop: msg.stop || null,
-                        max_tokens: parseInt(msg.max_tokens) || 4000,
-                        presence_penalty: parseInt(msg.presence_penalty) || 0,
-                        frequency_penalty: parseInt(msg.frequency_penalty) || 0,
-                    });
+                    // Request a chat completion
+                    const response = await openai.chat.completions.create(chatRequest(msg));
                     const trimmedContent =
                         response.choices[0].message.content.trim();
                     const result = {
